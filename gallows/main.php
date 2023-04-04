@@ -17,12 +17,11 @@ $guesses = 0;
 $max_guesses = strlen($word) + 3;
 
 echo "Hello player. In this game you have to guess the word. " . PHP_EOL .
-"For this word with $word_length letters you have $max_guesses letter guesses" . PHP_EOL;
+    "For this word with $word_length letters you have $max_guesses letter guesses" . PHP_EOL;
 
 echo implode(' ', $target_word) . PHP_EOL;
 
-while ($guesses < $max_guesses)
-{
+while ($guesses < $max_guesses) {
     $letter = readline("Enter letter :");
     $letter_positions = array_keys($word_parts, $letter);
 

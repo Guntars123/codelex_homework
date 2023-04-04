@@ -9,11 +9,12 @@ $person->name = "Anna";
 $person->surname = "Vanna";
 $person->age = 17;
 
-function authorise(object $person):void{
+function authorise(object $person): void
+{
     if ($person->age >= 18) {
-        echo "$person->name $person->surname is older than 18. Authorized!".PHP_EOL;;
+        echo "$person->name $person->surname is older than 18. Authorized!" . PHP_EOL;;
     } else {
-        echo "$person->name $person->surname is less than 18. No authorization!".PHP_EOL;
+        echo "$person->name $person->surname is less than 18. No authorization!" . PHP_EOL;
     }
 }
 

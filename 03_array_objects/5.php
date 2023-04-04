@@ -17,5 +17,5 @@ $items = [
     ]
 ];
 
-echo ("{$items[0][0]["name"]} & {$items[0][1]["name"]} {$items[0][0]["surname"]}`s");
+echo("{$items[0][0]["name"]} & {$items[0][1]["name"]} {$items[0][0]["surname"]}`s");
 echo PHP_EOL;

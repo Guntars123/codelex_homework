@@ -17,5 +17,5 @@ $items = [
     ]
 ];
 
-echo ("{$items[0][1]["name"]} {$items[0][1]["surname"]} {$items[0][1]["age"]}");
+echo("{$items[0][1]["name"]} {$items[0][1]["surname"]} {$items[0][1]["age"]}");
 echo PHP_EOL;

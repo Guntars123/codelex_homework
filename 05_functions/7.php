@@ -8,7 +8,7 @@
 
 $person = new stdClass();
 $person->name = "Peters";
-$person->licenses = ["A","B"];
+$person->licenses = ["A", "B"];
 $person->cash = 50000;
 
 function createWeapon(string $name, int $price, string $license): stdClass
@@ -20,6 +20,7 @@ function createWeapon(string $name, int $price, string $license): stdClass
 
     return $weapon;
 }
+
 $weapons = [
     "bomb" => createWeapon("dynamite", 2000, "A"),
     "knife" => createWeapon("kinzhal", 1000, "A"),
@@ -34,33 +35,28 @@ $license = implode(", ", $person->licenses);
 echo "Welcome $person->name $$cash [$license]" . PHP_EOL;
 echo "---------------------------------------------" . PHP_EOL;
 
-foreach ($weapons as $key => $weapon)
-{
+foreach ($weapons as $key => $weapon) {
     $price = $weapon->price / 100;
     echo "$key | $weapon->name | $$price | $weapon->license " . PHP_EOL;
 }
 
 $selectedWeapon = null;
 
-while($selectedWeapon == null)
-{
+while ($selectedWeapon == null) {
     $selection = readline("Please select weapon: ");
 
-    if (!array_key_exists($selection, $weapons))
-    {
+    if (!array_key_exists($selection, $weapons)) {
         echo "Weapon not found" . PHP_EOL;
         continue;
     }
 
-    if (!in_array($weapons[$selection]->license, $person->licenses))
-    {
+    if (!in_array($weapons[$selection]->license, $person->licenses)) {
         echo "Invalid license" . PHP_EOL;
         continue;
     }
 
-    if ($person->cash < $weapons[$selection]->price)
-    {
-        echo "Not enough cash" .PHP_EOL;
+    if ($person->cash < $weapons[$selection]->price) {
+        echo "Not enough cash" . PHP_EOL;
         continue;
     }
 

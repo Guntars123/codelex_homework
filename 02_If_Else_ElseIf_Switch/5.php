@@ -7,7 +7,7 @@ $integer = 50;
 $y = 1;
 $z = 100;
 
-if ($integer > $y && $integer <$z){
+if ($integer > $y && $integer < $z) {
     echo "correct";
 } else {
     echo "its not in the range";

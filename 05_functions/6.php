@@ -8,8 +8,9 @@
 
 $almost_all_numbers = [2, 4, 6, 5.5, "one"];
 
-function integerDoubler(array $array):void {
-    for ($i=0; $i < count($array); $i++) {
+function integerDoubler(array $array): void
+{
+    for ($i = 0; $i < count($array); $i++) {
         if (is_int($array[$i]) === true) {
             echo $array[$i] * 2 . PHP_EOL;
         } else {

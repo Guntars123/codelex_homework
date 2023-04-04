@@ -20,7 +20,7 @@ $spock = new stdClass();
 $spock->title = "spock";
 $spock->beats = [];
 
-$dynamite= new stdClass();
+$dynamite = new stdClass();
 $dynamite->title = "dynamite";
 $dynamite->beats = [];
 
@@ -41,7 +41,7 @@ $elements = [
 ];
 
 echo "Welcome player! In this game You can choose between such elements:" . PHP_EOL .
-"$lizard->title | $paper->title | $scissors->title | $rock->title | $spock->title | $dynamite->title" .PHP_EOL;
+    "$lizard->title | $paper->title | $scissors->title | $rock->title | $spock->title | $dynamite->title" . PHP_EOL;
 
 $pc_score = 0;
 $player_score = 0;
@@ -85,8 +85,7 @@ while ($play_again = "no") {
 
     $play_again = readline("Wanna play again? Press enter to continue / type no to exit ");
 
-    if ($play_again == "no")
-    {
+    if ($play_again == "no") {
         break;
     }
 }

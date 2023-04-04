@@ -8,5 +8,5 @@ $person = [
     "age" => 50
 ];
 
-var_dump($person["name"],$person["surname"], $person["age"]);
+var_dump($person["name"], $person["surname"], $person["age"]);
 echo PHP_EOL;

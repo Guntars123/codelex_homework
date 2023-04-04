@@ -30,10 +30,10 @@ $wallet = 0;
 
 while ($wallet < $selected_product->price) {
 
-    $input_coins = readline("Please insert coins (we accept 2/1/0.50/0.20/0.10/0.05/0.02/0.01 EUR coins): ".PHP_EOL);
-    if (validateCoin($input_coins,$coins) !== false) {
-        $inserted_coins =  $input_coins  * 100;
-        $wallet +=  $inserted_coins;
+    $input_coins = readline("Please insert coins (we accept 2/1/0.50/0.20/0.10/0.05/0.02/0.01 EUR coins): " . PHP_EOL);
+    if (validateCoin($input_coins, $coins) !== false) {
+        $inserted_coins = $input_coins * 100;
+        $wallet += $inserted_coins;
 
     } else {
 
@@ -44,12 +44,12 @@ while ($wallet < $selected_product->price) {
     $reminder = $wallet - $selected_product->price;
     $reminder_to_echo = $reminder / 100;
 
-    if ($reminder > 0){
+    if ($reminder > 0) {
         echo "--------------------------------------------------------------------------" . PHP_EOL;
         echo "Reminder is: $reminder_to_echo EUR" . PHP_EOL;
         echo "--------------------------------------------------------------------------" . PHP_EOL;
         echo "Vending machine ejects change: " . PHP_EOL;
-        foreach ($coins as $coin){
+        foreach ($coins as $coin) {
             if ($reminder >= $coin) {
                 $times = floor($reminder / $coin);
                 $reminder -= $coin * $times;
@@ -58,36 +58,40 @@ while ($wallet < $selected_product->price) {
             }
         }
         echo "--------------------------------------------------------------------------" . PHP_EOL;
-        echo "Please take Your change and have a nice day :) " .PHP_EOL;
+        echo "Please take Your change and have a nice day :) " . PHP_EOL;
     }
 }
 
 
-function addProduct(string $title, int $price) :stdClass {
+function addProduct(string $title, int $price): stdClass
+{
     $product = new stdClass();
     $product->title = $title;
     $product->price = $price;
     return $product;
 }
 
-function displayProducts (array $products) :void {
+function displayProducts(array $products): void
+{
     foreach ($products as $product) {
-        $product_price_echo = $product->price /100;
+        $product_price_echo = $product->price / 100;
         echo "$product->title - price: $product_price_echo EUR | ";
     }
     echo PHP_EOL;
 }
 
-function validateProduct(string $input_product) {
+function validateProduct(string $input_product)
+{
     global $products;
-    if (!array_key_exists($input_product,$products)){
+    if (!array_key_exists($input_product, $products)) {
         return false;
     } else {
         return $input_product;
     }
 }
 
-function validateCoin(string $input_coins, $coins) {
+function validateCoin(string $input_coins, $coins)
+{
     $input_coins_in_cents = (int)($input_coins * 100);
     if (!in_array($input_coins_in_cents, $coins)) {
         return false;

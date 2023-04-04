@@ -4,8 +4,11 @@
 // with added "codelex" by the end of it. Print this value out.;
 
 
-function stringConverter(string $string):string{
+function stringConverter(string $string): string
+{
     return $string . "codelex" . PHP_EOL;
-};
+}
+
+;
 
 print_r(stringConverter("I am learning at "));

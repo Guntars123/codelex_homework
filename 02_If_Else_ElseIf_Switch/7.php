@@ -5,7 +5,7 @@
 // "medium" if the case is higher than 50 but lower than 100,;
 // "high" if the value is >100.;
 
-$number= 101;
+$number = 101;
 
 
 switch ($number) {
