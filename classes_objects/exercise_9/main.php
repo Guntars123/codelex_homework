@@ -11,7 +11,7 @@ class BankAccount
         $this->balance = $balance;
     }
 
-    function show_user_name_and_balance(): void
+    function showUserNameAndBalance(): void
     {
         $ifNegative = "";
         if ($this->balance < 0) {
@@ -21,4 +21,4 @@ class BankAccount
     }
 }
 
-(new BankAccount("John", -1200.5))->show_user_name_and_balance();
+(new BankAccount("John", -1200.5))->showUserNameAndBalance();

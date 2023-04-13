@@ -1,46 +1,6 @@
 <?php declare(strict_types=1);
 
-class SavingsAccount
-{
-    private float $balance;
-    private float $interestRate;
-
-    public function __construct($balance, $interestRate)
-    {
-        $this->balance = $balance;
-        $this->interestRate = $interestRate;
-    }
-
-    public function withdrawal($withdrawal): void
-    {
-        $this->balance -= $withdrawal;
-    }
-
-    public function addDeposit($deposit): void
-    {
-        $this->balance += $deposit;
-    }
-
-    public function addMInterestRate(): void
-    {
-        $monthlyMInterestRate = $this->interestRate / 12 / 100;
-        $this->balance += ($this->balance * $monthlyMInterestRate);
-    }
-
-    public function earnedInterest()
-    {
-        $monthlyMInterestRate = $this->interestRate / 12 / 100;
-        return $this->balance * $monthlyMInterestRate;
-    }
-
-    public function getBalance(): float
-    {
-        return $this->balance;
-    }
-
-}
-
-class Test
+class SavingsAccountTest
 {
     public function main(): void
     {
@@ -53,22 +13,26 @@ class Test
 
         $totalDeposit = 0;
         $totalWithdrawn = 0;
-        $totalInterestEarned = 0;
+
 
         for ($i = 1; $i <= $accountOpened; $i++) {
             $deposit = (float)readline("Enter amount deposited for month $i: ");
             $totalDeposit += $deposit;
             $savingAccount->addDeposit($deposit);
             $withdrawal = (float)readline("Enter amount to withdrawn for month $i: ");
+            if ($savingAccount->getBalance() < $withdrawal) {
+                echo "Not enough money. Try again!" . PHP_EOL;
+                return;
+            }
             $totalWithdrawn += $withdrawal;
             $savingAccount->withdrawal($withdrawal);
             $savingAccount->addMInterestRate();
-            $totalInterestEarned += $savingAccount->earnedInterest();
+
         }
 
         $endBalance = $savingAccount->getBalance();
-        //this equation is for wrong task given:
-        // $totalInterestEarned = $endBalance - ($balance + $totalDeposit - $totalWithdrawn);
+
+        $totalInterestEarned = $endBalance - ($balance + $totalDeposit - $totalWithdrawn);
 
         function moneyFormat($number): string
         {
@@ -82,5 +46,3 @@ class Test
 
     }
 }
-
-(new Test)->main();

@@ -19,6 +19,7 @@ class Movie
     {
         $moviesPG = [];
         foreach ($movies as $movie) {
+            /** @var Movie $movie */
             if ($movie->rating === "PG") {
                 $moviesPG[] = $movie;
             }
@@ -31,17 +32,3 @@ class Movie
         echo "$this->title, the studio:  $this->studio" . PHP_EOL;
     }
 }
-
-$movies = [
-    new Movie("Casino Royale", "Eon Productions", "PG13"),
-    new Movie("Casino Glass", "Buena Vista International", "PG13"),
-    new Movie("Casino Spider-Man: Into the Spider-Verse", "Columbia Pictures", "PG"),
-];
-
-$moviesPG = Movie::getPG($movies);
-
-echo "Movies with rating PG: " . PHP_EOL;
-foreach ($moviesPG as $movie) {
-    $movie->getTitle();
-}
-
