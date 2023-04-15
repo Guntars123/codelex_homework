@@ -17,10 +17,9 @@ $cityData = json_decode($response);
 
 echo "---------------------------------------------------------------------" . PHP_EOL;
 echo "Laikapstākļi pilsētā $cityName:" . PHP_EOL;
-print "* Gaisa temperatūra: {$cityData->main->temp} C, pēc sajūtām {$cityData->main->feels_like} C" . PHP_EOL;
-print "* Ārā {$cityData->weather[0]->description} " . PHP_EOL;
-print "* Gaisa spiediens: {$cityData->main->pressure} h/pa" . PHP_EOL;
-print "* Gaisa mitrums: {$cityData->main->humidity} %" . PHP_EOL;
-print "* Redzamība: {$cityData->visibility} m" . PHP_EOL;
-print "* Vēja ātrums: {$cityData->wind->speed} m/s, brāzmās līdz: {$cityData->wind->gust} m/s" . PHP_EOL;
-
+echo "* Gaisa temperatūra: {$cityData->main->temp} C, pēc sajūtām {$cityData->main->feels_like} C" . PHP_EOL;
+echo "* Ārā {$cityData->weather[0]->description} " . PHP_EOL;
+echo "* Gaisa spiediens: {$cityData->main->pressure} h/pa" . PHP_EOL;
+echo "* Gaisa mitrums: {$cityData->main->humidity} %" . PHP_EOL;
+echo "* Redzamība: {$cityData->visibility} m" . PHP_EOL;
+echo "* Vēja ātrums: {$cityData->wind->speed} m/s, brāzmās līdz: {$cityData->wind->gust} m/s" . PHP_EOL;
